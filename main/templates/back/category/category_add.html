@@ -1,0 +1,59 @@
+{% extends "back/master.html" %}
+{% load static %}
+
+{% block mainblock %}
+<!-- NewsPage content Where you can see all the Articles -->
+<div id="page-content">
+    <!-- Page content -->
+    <div id="page-content">
+        <!-- News Add Header -->
+        <div class="content-header">
+            <div class="header-section">
+                <h1>
+                    <i class="fa fa-table"></i>Category<br><small>Lets add a new Category</small>
+                </h1>
+            </div>
+        </div>
+        <ul class="breadcrumb breadcrumb-top">
+            <li>Category</li>
+            <li><a href="">Add</a></li>
+        </ul>
+        <!-- END News Add Header -->
+        <!-- News Add Content -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <div class="block-title">
+                        <h2><strong>Add</strong> Category</h2>
+                    </div>
+
+                    <!-- Add News Form -->
+                    <form action="{% url 'category_add' %}" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Enter a Category">
+                            </div>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-sm btn-primary">
+                                    <i class="fa fa-angle-right"></i> Submit
+                                </button>
+                            </div>
+                        </div>
+                    </form>      
+                    <!-- End of form -->                      
+                </div>
+            </div>                        
+        </div>
+        <!-- END News Add Content -->
+    </div>
+    <!-- END Page Content -->
+</div>
+<!-- END Page Content -->
+{% endblock %}
+
+{% block footerjsblock %}
+<!-- Load and execute javascript code used only in this page -->
+<script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+<script>$(function(){ TablesDatatables.init(); });</script>
+{% endblock %}

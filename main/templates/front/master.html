@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include "front/master/css.html" %}
+    {% block headblock %} {% endblock %}
+</head>
+
+<body class="animsition">
+	
+	{% include "front/master/navbar.html" %}
+		
+    {% block mainblock %} {% endblock %}
+
+    {% include "front/master/footer.html" %}
+    {% include "front/master/js.html" %}
+
+</body>
+</html>

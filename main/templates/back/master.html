@@ -1,0 +1,254 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="no-js lt-ie10" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+
+    <title>CodeasyB - Panel</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+    {% include "back/master/css.html" %}
+    {% block headblock %} {% endblock %}
+</head>
+
+<body class="animsition">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+    <!-- Preloader -->
+    <!-- Preloader functionality (initialized in js/app.js) - pageLoading() -->
+    <!-- Used only if page preloader is enabled from inc/config (PHP version) or the class 'page-loading' is added in #page-wrapper element (HTML version) -->
+    <div class="preloader themed-background">
+        <h1 class="push-top-bottom text-light text-center"><strong>Code</strong>asyB</h1>
+        <div class="inner">
+            <h3 class="text-light visible-lt-ie10"><strong>Loading..</strong></h3>
+            <div class="preloader-spinner hidden-lt-ie10"></div>
+        </div>
+    </div>
+    <!-- END Preloader -->
+
+    <!-- Page Container -->
+    <div id="page-container" class="sidebar-partial sidebar-visible-lg sidebar-no-animations">
+        <!-- Main Sidebar -->
+        <div id="sidebar">
+            <!-- Wrapper for scrolling functionality -->
+            <div id="sidebar-scroll">
+                <!-- Sidebar Content -->
+                <div class="sidebar-content">
+                    <!-- Brand -->
+                    <a href="index.html" class="sidebar-brand">
+                        <i class="gi gi-flash"></i><span class="sidebar-nav-mini-hide"><strong>Code</strong>asyB</span>
+                    </a>
+                    <!-- END Brand -->
+
+                    <!-- User Info -->
+                    <div class="sidebar-section sidebar-user clearfix sidebar-nav-mini-hide">
+                        <div class="sidebar-user-avatar">
+                            <a href="page_ready_user_profile.html">
+                                <img src="{% static 'back/img/placeholders/avatars/avatar2.jpg'%}" alt="avatar">
+                            </a>
+                        </div>
+                        <div class="sidebar-user-name">AMir</div>
+                        <div class="sidebar-user-links">
+                            <a href="page_ready_user_profile.html" data-toggle="tooltip" data-placement="bottom" title="Profile"><i class="gi gi-user"></i></a>
+                            <a href="page_ready_inbox.html" data-toggle="tooltip" data-placement="bottom" title="Messages"><i class="gi gi-envelope"></i></a>
+                            <!-- Opens the user settings modal that can be found at the bottom of each page (page_footer.html in PHP version) -->
+                            <a href="javascript:void(0)" class="enable-tooltip" data-placement="bottom" title="Settings" onclick="$('#modal-user-settings').modal('show');"><i class="gi gi-cogwheel"></i></a>
+                            <a href="login.html" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="gi gi-exit"></i></a>
+                        </div>
+                    </div>
+                    <!-- END User Info -->
+
+                    <!-- Sidebar Navigation -->
+                    <ul class="sidebar-nav">
+                        <li>
+                            <a href="{% url 'panel' %}" class=" active"><i 
+                                class="gi gi-stopwatch sidebar-nav-icon"></i><span 
+                                class="sidebar-nav-mini-hide">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-header">
+                            <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a></span>
+                            <span class="sidebar-header-title">Site Settings</span>
+                        </li>
+                        <!-- Site Settings for Category -->
+                        <li>
+                            <a href="#" class="sidebar-nav-menu">
+                                <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+                                <i class="gi gi-show_big_thumbnails sidebar-nav-icon"></i>
+                                <span class="sidebar-nav-mini-hide">Category</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="/panel/category/add/">Add Category</a>
+                                </li>
+                                <li>
+                                    <a href="/panel/category/list">Category List</a>
+                                </li>
+                            </ul>
+                        </li>
+                         <li>
+                            <a href="#" class="sidebar-nav-menu">
+                                <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+                                <i class="gi gi-show_big_thumbnails sidebar-nav-icon"></i>
+                                <span class="sidebar-nav-mini-hide">Sub Category</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="/panel/subcategory/add/">Add Sub Category</a>
+                                </li>
+                                <li>
+                                    <a href="/panel/subcategory/list">Sub Category List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Site Settings for News-->
+                        <li>
+                            <a href="#" class="sidebar-nav-menu">
+                                <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+                                <i class="gi gi-show_big_thumbnails sidebar-nav-icon"></i>
+                                <span class="sidebar-nav-mini-hide">News</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="/panel/news/add/">Add News</a>
+                                </li>
+                                <li>
+                                    <a href="/panel/news/list/">News List</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- We will work on this later -->
+                        <li>
+                            <a href="#" class="sidebar-nav-menu">
+                                <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+                                <i class="gi gi-brush sidebar-nav-icon"></i>
+                                <span class="sidebar-nav-mini-hide">User Settings</span>
+                            </a>
+                            <!-- User Settings drop down menu -->
+                            <ul>
+                                <li>
+                                    <a href="#" class="sidebar-nav-submenu">
+                                        <i class="fa fa-angle-left sidebar-nav-indicator">
+                                        </i>Login, Register &amp; Lock
+                                    </a>
+                                    <!-- Login, Register drop down menu -->
+                                    <ul>
+                                        <li>
+                                            <a href="login.html">Login</a>
+                                        </li>
+                                        <li>
+                                            <a href="login.html#register">Register</a>
+                                        </li>
+                                        <li>
+                                            <a href="page_ready_lock_screen.html">Lock Screen</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Site Settings for User Settigns -->
+                    </ul>
+                    <!-- END Sidebar Navigation -->
+                </div>
+                <!-- END Sidebar Content -->
+            </div>
+            <!-- END Wrapper for scrolling functionality -->
+        </div>
+        <!-- END Main Sidebar -->
+
+        <!-- Main Container -->
+        <div id="main-container">
+            <!-- Header -->
+            <header class="navbar navbar-default">
+                <!-- Left Header Navigation -->
+                <ul class="nav navbar-nav-custom">
+                    <!-- Main Sidebar Toggle Button -->
+                    <li>
+                        <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
+                            <i class="fa fa-bars fa-fw"></i>
+                        </a>
+                    </li>
+                    <!-- END Main Sidebar Toggle Button -->
+                </ul>
+                <!-- END Left Header Navigation -->
+
+                <!-- Search Form -->
+                <form action="page_ready_search_results.html" method="post" class="navbar-form-custom">
+                    <div class="form-group">
+                        <input type="text" id="top-search" name="top-search" class="form-control" placeholder="Search..">
+                    </div>
+                </form>
+                <!-- END Search Form -->
+
+                <!-- Right Header Navigation -->
+                <ul class="nav navbar-nav-custom pull-right">
+                    <!-- Alternative Sidebar Toggle Button I can use this for futur purpose -->
+
+                    <!-- User Account Dropdown very important to work with later -->
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="{% static 'back/img/placeholders/avatars/avatar2.jpg'%}" alt="avatar"> <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                            <li class="dropdown-header text-center">Account</li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="page_ready_user_profile.html">
+                                    <i class="fa fa-user fa-fw pull-right"></i>
+                                    Profile
+                                </a>
+                                <!-- Opens the user settings modal that can be found at the bottom of each page (page_footer.html in PHP version) -->
+                                <a href="#modal-user-settings" data-toggle="modal">
+                                    <i class="fa fa-cog fa-fw pull-right"></i>
+                                    Settings
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="login.html"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END User Dropdown -->
+                </ul>
+                <!-- END Right Header Navigation -->
+            </header>
+            <!-- END Header -->
+
+            <!-- Page content -->
+            <div id="page-content">
+                <!-- Dashboard Header -->
+                <!-- For an image header add the class 'content-header-media' and an image as in the following example -->
+                {% block mainblock %} 
+                {% endblock %}
+            </div>
+            <!-- END Page Content -->
+
+
+            <!-- Footer -->
+            <footer class="clearfix">
+                <div class="pull-right">
+                    Crafted with <i class="fa fa-heart text-danger"></i> by <a href="https://github.com/codeasyb" target="_blank">CodeasyB</a>
+                </div>
+                <div class="pull-left">
+                    <span id="year-copy"></span> &copy; <a href="https://github.com/codeasyb" target="_blank">Django</a>
+                </div>
+            </footer>
+            <!-- END Footer -->
+        </div>
+        <!-- END Main Container -->
+    </div>
+    <!-- END Page Container -->
+</div>
+<!-- END Page Wrapper -->
+
+
+    {% include "back/master/settings.html" %}
+    {% include "back/master/js.html" %}
+    {% block footerjsblock %} {% endblock %}
+</body>
+</html>

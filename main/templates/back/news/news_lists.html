@@ -1,0 +1,77 @@
+{% extends "back/master.html" %}
+{% load static %}
+
+{% block mainblock %}
+<!-- NewsPage content Where you can see all the Articles -->
+<div id="page-content">
+    <!-- Page content -->
+    <div id="page-content">
+        <!-- Datatables Header -->
+        <div class="content-header">
+            <div class="header-section">
+                <h1>
+                    <i class="fa fa-table"></i>News Lists<br><small><span><a href="/panel/news/add/">Add</a></span>, Edit, and Delete data</small>
+                </h1>
+            </div>
+        </div>
+        <ul class="breadcrumb breadcrumb-top">
+            <li>News</li>
+            <li><a href="">List</a></li>
+        </ul>
+        <!-- END Datatables Header -->
+        <!-- Datatables Content -->
+        <div class="block full">
+            <div class="block-title">
+                <h2><strong>News</strong> Lists</h2>
+            </div>
+            <div class="table-responsive">
+                <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>image</th>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Author</th>
+                            <th>Views</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        {% for art in articles %}
+                        <tr>
+                            <td class="text-center">{{ art.pk }}</td>
+                            <td>{{ art.title }}</td>
+                            <td><img style="display: inline-block;" src="{{ art.image_url }}" width="80" height="50"></td>
+                            <td>{{ art.time_stamp | date:"F d Y" }}</td>
+                            <td>{{ art.category_name }}</td>
+                            <td>{{ art.authur }}</td>
+                            <td>{{ art.views }}</td>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <a href="{% url 'article_edit' pk=art.pk %}" data-toggle="tooltip" title="Edit" 
+                                    class="btn btn-xs btn-default"><i class="fa fa-pencil"></i></a>
+                                    <a href="{% url 'article_delete' pk=art.pk %}" data-toggle="tooltip" title="Delete" 
+                                    class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- END Datatables Content -->
+    </div>
+    <!-- END Page Content -->
+</div>
+<!-- END Page Content -->
+
+{% endblock %}
+
+{% block footerjsblock %}
+<!-- Load and execute javascript code used only in this page -->
+<script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+<script>$(function(){ TablesDatatables.init(); });</script>
+{% endblock %}
